@@ -103,13 +103,45 @@ body {
 }
 
 [class*="__container"] {
-  max-width: 1057px;
+  max-width: 1087px;
   margin: 0 auto;
+  /* отступы безопасности, чтобы не прилипал контент к краям */
+  padding: 0px 15px;
 }
+
+/* PC */
+@media (max-width: 1087px) {
+  [class*="__container"] {
+    max-width: 970px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 991.98px) {
+  [class*="__container"] {
+    max-width: 750px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 761.98px) {
+  [class*="__container"] {
+    max-width: none;
+  }
+}
+
+/*  MOBILE CMOLL*/
+@media (max-width: 479.98px) {
+  .header__logo {
+    flex: 0 0 40px;
+    overflow: hidden;
+  }
+}
+
 .main {
   flex: 1 1 auto;
 }
-
+/* делаем хедер фиксированным */
 .header {
   position: absolute;
   width: 100%;
@@ -120,10 +152,15 @@ body {
 .header__container {
   display: flex;
   align-items: center;
-  min-height: 112px;
+  min-height: 114px;
 }
+
 .header__logo {
+  position: relative;
+  z-index: 5;
 }
+
+/* разрешаем меню расти */
 .header__manu {
   flex: 1 1 auto;
 }
@@ -134,8 +171,8 @@ body {
 .menu {
   display: flex;
   justify-content: flex-end;
-  padding: 0px 40px 0px 0px;
 }
+
 .menu__list {
   display: flex;
   /* посмотреть что такое gap */
@@ -144,6 +181,7 @@ body {
 .menu_item {
   margin: 0px 40px 0px 0px;
 }
+
 .menu__link {
   font-family: Raleway;
   text-transform: uppercase;
@@ -152,10 +190,83 @@ body {
   line-height: 1.2;
   color: black;
 }
+
+.menu__link:hover {
+  text-decoration: underline;
+}
+
 .header__button {
+  position: relative;
+  z-index: 5;
   display: flex;
   justify-content: flex-end;
+  flex: 0 0 252px;
+  align-items: center;
 }
+
+@media (max-width: 991.98px) {
+  .header__container {
+    min-height: 80px;
+  }
+  .menu_item {
+    margin: 0px 30px 0px 0px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .header__button {
+    flex: 0 0 170px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .menu__body {
+    /* добавляет скролл */
+    overflow: auto;
+
+    position: fixed;
+    top: 0px;
+    left: -110%;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 90px 15px 30px 15px;
+    transition: left 0.3s ease 0s;
+  }
+
+  .header:target .menu__body {
+    left: 0;
+  }
+
+  /* прокладка чтобы заезжало меню */
+
+  .header:target .menu__body {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    background: #fff ;
+  }
+
+  .menu__link {
+    color: #000;
+    font-size: 20px;
+  }
+  .menu__list {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu_item {
+    margin: 0px 0px 25px 0px;
+  }
+  .menu_item:last-child {
+    margin-bottom: 0px;
+  }
+}
+
 .button {
   display: inline-block;
   font-family: Raleway;
@@ -167,7 +278,7 @@ body {
   color: #fcfdfe;
   border-radius: 5px;
   padding: 14px 30px;
-  background: #ec5863;
+  background: #587eec;
   transition: background-color 0.3s ease 0s;
 }
 
@@ -181,4 +292,69 @@ body {
 
 .button_blue:hover {
   background-color: #70a3f7;
+}
+
+/* ---------burger-------- */
+.close-icon-menu,
+.icon-menu {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .close-icon-menu,
+  .icon-menu {
+    position: relative;
+    flex: 0 0 30px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px 0px 0px 20px;
+  }
+
+  .icon-menu::before,
+  .icon-menu::after {
+    content: "";
+    background: #000;
+    height: 2px;
+  }
+
+  .icon-menu span {
+    background: #000;
+    height: 2px;
+  }
+
+  .close-icon-menu {
+    display: none;
+  }
+
+  .close-icon-menu::before,
+  .close-icon-menu::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #000;
+  }
+
+  .icon-menu span {
+    background: #000;
+    height: 2px;
+  }
+  .close-icon-menu::before {
+    transform: rotate(45deg);
+  }
+
+  .close-icon-menu::after {
+    transform: rotate(-45deg);
+  }
+
+  .header:target .icon-menu {
+    display: none;
+  }
+  .header:target .close-icon-menu {
+    display: flex;
+  }
 }

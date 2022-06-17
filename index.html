@@ -13,29 +13,61 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style.css" />
-    <title>Gocorna Website</title>
+    <title>GoСorna Website</title>
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <div class="header__container">
+      <header id="open" class="header">
+        <div id="close" class="header__container">
           <a href="" class="header__logo">
             <img src="/img/logo.png" alt="логотип" />
           </a>
-          <nav class="header__manu menu">
-            <ul class="menu__list">
-              <li class="menu_item"><a href="#" class="menu__link">HOME</a></li>
-              <li class="menu_item"><a href="" class="menu__link">FEATURE</a></li>
-              <li class="menu_item"><a href="" class="menu__link">SUPPORT</a></li>
-              <li class="menu_item"><a href="" class="menu__link">CONTACT US</a></li>
-            </ul>
-          </nav>
+          <div class="header__manu menu">
+            <nav id="menu" class="menu__body">
+              <ul class="menu__list">
+                <li class="menu_item">
+                  <a href="#" class="menu__link">HOME</a>
+                </li>
+                <li class="menu_item">
+                  <a href="" class="menu__link">FEATURE</a>
+                </li>
+                <li class="menu_item">
+                  <a href="" class="menu__link">SUPPORT</a>
+                </li>
+                <li class="menu_item">
+                  <a href="" class="menu__link">CONTACT US</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
           <div class="header__button">
-            <a href="" class="button button_blue">DOWNLOAD</a>
+            <a href="#" class="button button_blue">DOWNLOAD</a>
+            <a href="#open" class="icon-menu"><span></span></a>
+            <a href="#close" class="close-icon-menu"></a>
           </div>
         </div>
       </header>
-      <main class="main">content</main>
+      <main class="main">
+        <section class="get-started">
+          <div class="get-started__conteiner">
+            <div class="get-started__content">
+              <div class="get-started__block-text block-text">
+                <h1 class="block-text__title block-text__title_blue">
+                  Take care of yours family’s <span>health.</span>
+                </h1>
+                <div class="block-text__text">
+                  All in one destination for COVID-19 health queries. Consult
+                  10,000+ health workers about your concerns.
+                </div>
+                <a href="#" class="block-text__button">GET STARTED</a>
+              </div>
+            </div>
+            <div class="get-started__image">
+              <img src="/img/block_img_1.png" alt=" " />
+            </div>
+          </div>
+        </section>
+      </main>
       <footer class="footer">footer</footer>
     </div>
   </body>
